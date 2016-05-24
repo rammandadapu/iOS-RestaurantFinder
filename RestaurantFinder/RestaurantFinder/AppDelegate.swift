@@ -18,20 +18,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         GMSServices.provideAPIKey("AIzaSyBS8BFnuV4RQzHqPJZveBRVbhoNCRJ8N9o")
-        /*let tabBarController = self.window!.rootViewController as! UITabBarController
-        let splitViewController = tabBarController.viewControllers!.last as! UISplitViewController
-        let searchNavController = splitViewController.viewControllers.first as! UINavigationController
-        
+        let tabBarController = self.window!.rootViewController as! UITabBarController
+        let searchSplitViewController = tabBarController.viewControllers!.first as! UISplitViewController
+        let favouritesSplitViewController = tabBarController.viewControllers!.last as! UISplitViewController
+        let searchNavController = searchSplitViewController.viewControllers.first as! UINavigationController
+       // let favLeftNavController = favouritesSplitViewController.viewControllers.first as! UINavigationController
+        let favRightNavController = favouritesSplitViewController.viewControllers.last as! UINavigationController
         let masterViewController = searchNavController.topViewController as! ResultsViewController
-        let rightNavController = splitViewController.viewControllers.last as! UINavigationController
+        let rightNavController = searchSplitViewController.viewControllers.last as! UINavigationController
         let detailViewController = rightNavController.topViewController as! RestaurantViewController
+        let favDetailViewController = favRightNavController.topViewController as! FavouriteDetailViewController
+        
+       // let favLeftNavController = favNavController.topViewController as! FavouriteViewController
         
         detailViewController.navigationItem.leftItemsSupplementBackButton = true
-        splitViewController.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
-        detailViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+        favDetailViewController.navigationItem.leftItemsSupplementBackButton = true
+        searchSplitViewController.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+        favouritesSplitViewController.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+        detailViewController.navigationItem.leftBarButtonItem = searchSplitViewController.displayModeButtonItem()
+        favDetailViewController.navigationItem.leftBarButtonItem = searchSplitViewController.displayModeButtonItem()
         
         let business = masterViewController.results.first
-        detailViewController.business = business*/
+        detailViewController.business = business
         // Override point for customization after application launch.
         return true
     }
