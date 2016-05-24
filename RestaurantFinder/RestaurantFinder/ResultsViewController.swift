@@ -30,7 +30,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var sortRelevance:Bool = true
     
-    var detailViewController: RestaurantViewController? = nil
+    //var detailViewController: RestaurantViewController? = nil
     
     var client: YelpClient!
     
@@ -61,10 +61,10 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
         
         self.performSearch("")
         
-        if let split = self.splitViewController {
+        /*if let split = self.splitViewController {
             let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? RestaurantViewController
-        }
+            self.detailViewController = (controllers[1] as! UINavigationController).topViewController as? RestaurantViewController
+        }*/
 
     }
     

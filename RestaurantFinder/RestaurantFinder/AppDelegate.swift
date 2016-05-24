@@ -18,9 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         GMSServices.provideAPIKey("AIzaSyBS8BFnuV4RQzHqPJZveBRVbhoNCRJ8N9o")
-        let splitViewController = self.window!.rootViewController as! UISplitViewController
-        let leftNavController = splitViewController.viewControllers.first as! UINavigationController
-        let masterViewController = leftNavController.topViewController as! ResultsViewController
+        let tabBarController = self.window!.rootViewController as! UITabBarController
+        let splitViewController = tabBarController.viewControllers!.last as! UISplitViewController
+        let searchNavController = splitViewController.viewControllers.first as! UINavigationController
+        
+        let masterViewController = searchNavController.topViewController as! ResultsViewController
         let rightNavController = splitViewController.viewControllers.last as! UINavigationController
         let detailViewController = rightNavController.topViewController as! RestaurantViewController
         
