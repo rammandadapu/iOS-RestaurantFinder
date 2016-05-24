@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kM2-kI-wdk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kM2-kI-wdk">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -386,7 +386,7 @@
             </objects>
             <point key="canvasLocation" x="4626" y="153"/>
         </scene>
-        <!--Favorite Street View Controller-->
+        <!--Street view-->
         <scene sceneID="1xF-Mm-xyX">
             <objects>
                 <viewController id="kZD-w1-qv0" customClass="FavoriteStreetViewController" customModule="RestaurantFinder" customModuleProvider="target" sceneMemberID="viewController">
@@ -395,7 +395,7 @@
                         <viewControllerLayoutGuide type="bottom" id="L8S-ty-gwe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Cel-pt-Jpt">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="enc-Pb-idg">
@@ -405,7 +405,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6D0-fX-18N"/>
+                    <navigationItem key="navigationItem" title="Street view" id="6D0-fX-18N"/>
                     <connections>
                         <outlet property="tviwew" destination="enc-Pb-idg" id="lEp-9r-WVl"/>
                     </connections>
@@ -551,7 +551,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <state key="normal" title="Street"/>
                                                 <connections>
-                                                    <segue destination="Tax-hU-5Nd" kind="presentation" identifier="segueTest" id="ncE-yc-cKd"/>
+                                                    <segue destination="Tax-hU-5Nd" kind="show" identifier="segueTest" id="ncE-yc-cKd"/>
                                                 </connections>
                                             </button>
                                         </subviews>
