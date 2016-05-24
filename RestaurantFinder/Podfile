@@ -1,0 +1,12 @@
+
+
+def import_pods
+    pod 'AFNetworking', '~> 2.4'
+    pod 'BDBOAuth1Manager'
+    pod 'SVPullToRefresh'
+    pod 'GoogleMaps'
+end
+
+target 'RestaurantFinder' do
+import_pods
+end
