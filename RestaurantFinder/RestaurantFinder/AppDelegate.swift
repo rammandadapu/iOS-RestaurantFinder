@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+        GMSServices.provideAPIKey("AIzaSyBS8BFnuV4RQzHqPJZveBRVbhoNCRJ8N9o")
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let leftNavController = splitViewController.viewControllers.first as! UINavigationController
         let masterViewController = leftNavController.topViewController as! ResultsViewController

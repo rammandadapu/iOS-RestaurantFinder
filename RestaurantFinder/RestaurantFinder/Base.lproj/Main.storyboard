@@ -160,9 +160,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" enabled="NO" id="mqh-Ho-aDV">
+                            <rect key="frame" x="0.0" y="64" width="600" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="BusinessTableViewCell" rowHeight="135" id="cts-tg-ZAw" userLabel="BusinessTableCell" customClass="BusinessTableCell" customModule="RestaurantFinder" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="135"/>
+                                <rect key="frame" x="0.0" y="116" width="600" height="135"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cts-tg-ZAw" id="vBv-Ld-kSo">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="134.5"/>
@@ -283,9 +290,14 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="Map" id="553-54-qWN"/>
+                        <barButtonItem key="rightBarButtonItem" image="Map" id="553-54-qWN">
+                            <connections>
+                                <action selector="selectLocation:" destination="mlD-ae-aOr" id="tWY-Rd-VtR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="locationLabel" destination="mqh-Ho-aDV" id="qnd-XO-Rld"/>
                         <outlet property="resultsTableView" destination="d87-0j-dy6" id="Dnq-az-AGh"/>
                         <outlet property="sortButton" destination="m2A-EI-nWY" id="zI3-UW-eUP"/>
                     </connections>

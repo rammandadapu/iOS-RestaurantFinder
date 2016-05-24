@@ -8,17 +8,20 @@
 
 import Foundation
 import UIKit
+import GoogleMaps
 import CoreLocation
 
 class ResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet var resultsTableView: UITableView!
     
+    @IBOutlet weak var locationLabel: UILabel!
     var searchBar: UISearchBar!
     
     var latitude: Double = 37.336079
     var longitude: Double = -121.880453
-    
+    var placesClient: GMSPlacesClient?
+    var placePicker: GMSPlacePicker?
     
     @IBOutlet weak var sortButton: UIButton!
     var results: Array<Business> = []
@@ -41,24 +44,54 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         self.client = YelpClient(consumerKey: yelpConsumerKey, consumerSecret: yelpConsumerSecret, accessToken: yelpToken, accessSecret: yelpTokenSecret)
-        
+         self.locationLabel.text = "Default Location: San Jose"
+        placesClient = GMSPlacesClient()
+        setCurrentPlace()
+
         self.resultsTableView.delegate = self
         self.resultsTableView.dataSource = self
         self.resultsTableView.rowHeight = UITableViewAutomaticDimension
         self.resultsTableView.estimatedRowHeight = 116
         
         self.searchBar = UISearchBar()
+        
         self.searchBar.delegate = self
         self.searchBar.placeholder = "keyword.."
         self.navigationItem.titleView = self.searchBar
         
-        self.performSearch("mango")
+        self.performSearch("")
         
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? RestaurantViewController
         }
 
+    }
+    
+    func setCurrentPlace() {
+        
+        placesClient?.currentPlaceWithCallback({
+            (placeLikelihoodList: GMSPlaceLikelihoodList?, error: NSError?) -> Void in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            self.locationLabel.text = "No current place"
+            
+            
+            if let placeLikelihoodList = placeLikelihoodList {
+                let place = placeLikelihoodList.likelihoods.first?.place
+                if let place = place {
+                    self.locationLabel.text = "Current Location: "+place.name
+                    self.latitude = place.coordinate.latitude
+                    self.longitude = place.coordinate.longitude
+                    // self.addressLabel.text = place.formattedAddress!.componentsSeparatedByString(", ")
+                    //.joinWithSeparator("\n")
+                    self.searchBarSearchButtonClicked(self.searchBar)
+                }
+            }
+        })
     }
     
     @IBAction func buttonClicked(sender: AnyObject) { //Touch Up Inside action
@@ -201,5 +234,33 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
     }
+    
+    @IBAction func selectLocation(sender: AnyObject) {
+        let center = CLLocationCoordinate2DMake(37.335268, -121.881361)
+        let northEast = CLLocationCoordinate2DMake(center.latitude + 0.001, center.longitude + 0.001)
+        let southWest = CLLocationCoordinate2DMake(center.latitude - 0.001, center.longitude - 0.001)
+        let viewport = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
+        let config = GMSPlacePickerConfig(viewport: viewport)
+        placePicker = GMSPlacePicker(config: config)
+        
+        placePicker?.pickPlaceWithCallback({ (place: GMSPlace?, error: NSError?) -> Void in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let place = place {
+                self.locationLabel.text = "Current Location: "+place.name
+                self.latitude = place.coordinate.latitude
+                self.longitude = place.coordinate.longitude
+                self.searchBarSearchButtonClicked(self.searchBar)
+                //self.addressLabel.text = place.formattedAddress!.componentsSeparatedByString(", ").joinWithSeparator("\n")
+            } else {
+                //self.locationLabel.text = "No place selected"
+                //self.addressLabel.text = ""
+            }
+        })
+    }
+
 
 }
