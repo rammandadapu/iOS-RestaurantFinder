@@ -88,6 +88,13 @@
                                                     <action selector="favourites:" destination="qUX-DV-BFR" eventType="touchUpInside" id="GjR-ds-YZC"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2l-mH-A0j">
+                                                <rect key="frame" x="311" y="51" width="42" height="30"/>
+                                                <state key="normal" title="Street"/>
+                                                <connections>
+                                                    <segue destination="8U5-mJ-uYC" kind="presentation" identifier="segueTest" id="p2i-Oz-Mks"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -173,6 +180,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ynW-LH-qed" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4638" y="1105"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Bop-Yo-Rzn">
+            <objects>
+                <navigationController id="8U5-mJ-uYC" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="I7A-Pl-yRu"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Xx-F8-52c">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Via-m5-94f" kind="relationship" relationship="rootViewController" id="t14-Lq-xUQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9g2-rd-XcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5392" y="1066"/>
+        </scene>
+        <!--Street View View Controller-->
+        <scene sceneID="Fex-9a-qNr">
+            <objects>
+                <viewController id="Via-m5-94f" customClass="StreetViewViewController" customModule="RestaurantFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9nZ-I2-tHo"/>
+                        <viewControllerLayoutGuide type="bottom" id="mKm-md-Bnn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LrW-QG-eTs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I7Y-M0-GHQ">
+                                <rect key="frame" x="0.0" y="59" width="400" height="341"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HnA-Wo-XGb"/>
+                    <connections>
+                        <outlet property="testView" destination="I7Y-M0-GHQ" id="CvX-bI-x1b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xBv-I4-ILg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6155" y="1066"/>
         </scene>
         <!--Search-->
         <scene sceneID="ZLz-PY-Vab">
@@ -404,7 +456,7 @@
         <!--Details-->
         <scene sceneID="2po-z2-25K">
             <objects>
-                <viewController storyboardIdentifier="FavDetails" title="Details" id="GQP-FB-9Bs" customClass="RestaurantViewController" customModule="RestaurantFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavDetails" title="Details" id="GQP-FB-9Bs" customClass="FavouriteDetailViewController" customModule="RestaurantFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dhr-rk-PJn"/>
                         <viewControllerLayoutGuide type="bottom" id="nUg-Lv-P81"/>
@@ -544,138 +596,6 @@
             </objects>
             <point key="canvasLocation" x="4696" y="-1367"/>
         </scene>
-        <!--Favorites-->
-        <scene sceneID="1NH-df-oF8">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NMG-gM-R54" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="e5w-IB-eKO" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="IkF-nb-NtH">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="0.0" reuseIdentifier="FavouriteTableViewCell" rowHeight="135" id="fCg-iN-yeW" userLabel="FavoriteViewCell" customClass="FavouriteTableViewCell" customModule="RestaurantFinder" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="135"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fCg-iN-yeW" id="Pyx-if-lyu">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="134.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ysS-P0-5m2" userLabel="restaurant Image">
-                                            <rect key="frame" x="8" y="8" width="147" height="120"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="147" id="KcE-gM-VYt"/>
-                                                <constraint firstAttribute="width" secondItem="ysS-P0-5m2" secondAttribute="height" multiplier="1:1" constant="27.5" id="buK-Ks-ptM"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Key words" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwG-wo-cVY">
-                                            <rect key="frame" x="163" y="78" width="468" height="17"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="17" id="0Vr-Ms-nPY"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
-                                                <rect key="frame" x="163" y="78" width="67" height="17"/>
-                                            </variation>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Reviews" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="s2q-X0-iBg">
-                                            <rect key="frame" x="255" y="35" width="53" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Resturant Name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCM-rZ-Tha">
-                                            <rect key="frame" x="163" y="8" width="416" height="19"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="416" id="cfm-iR-Hgy"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sas-17-aOE" userLabel="Rating Image">
-                                            <rect key="frame" x="163" y="35" width="84" height="17"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="84" id="bKX-dF-1lW"/>
-                                                <constraint firstAttribute="height" constant="17" id="xtF-1w-5n5"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" Address" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eat-yp-8XI">
-                                            <rect key="frame" x="163" y="59" width="468" height="17"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="17" id="6rg-gU-xWg"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
-                                                <rect key="frame" x="163" y="57" width="67" height="17"/>
-                                            </variation>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="gwG-wo-cVY" firstAttribute="trailing" secondItem="Pyx-if-lyu" secondAttribute="trailingMargin" constant="47" id="0yM-vc-qMH"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="lCM-rZ-Tha" secondAttribute="trailing" constant="5" id="8ts-5o-Bw5"/>
-                                        <constraint firstItem="Sas-17-aOE" firstAttribute="leading" secondItem="ysS-P0-5m2" secondAttribute="trailing" constant="8" id="D5M-U3-iqO"/>
-                                        <constraint firstItem="eat-yp-8XI" firstAttribute="top" secondItem="s2q-X0-iBg" secondAttribute="bottom" constant="4" id="DwV-aW-Bcv"/>
-                                        <constraint firstItem="gwG-wo-cVY" firstAttribute="leading" secondItem="Sas-17-aOE" secondAttribute="leading" id="F1I-RU-9gK"/>
-                                        <constraint firstItem="ysS-P0-5m2" firstAttribute="top" secondItem="Pyx-if-lyu" secondAttribute="topMargin" id="Jju-hM-c5Y"/>
-                                        <constraint firstItem="lCM-rZ-Tha" firstAttribute="leading" secondItem="ysS-P0-5m2" secondAttribute="trailing" constant="8" id="Lyk-PP-j2N"/>
-                                        <constraint firstItem="gwG-wo-cVY" firstAttribute="top" secondItem="eat-yp-8XI" secondAttribute="bottom" constant="4" id="MLZ-Tv-RFu"/>
-                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="ysS-P0-5m2" secondAttribute="bottom" constant="-8" id="NTe-NW-msW"/>
-                                        <constraint firstItem="Sas-17-aOE" firstAttribute="top" secondItem="s2q-X0-iBg" secondAttribute="top" id="QQ0-yd-wJf"/>
-                                        <constraint firstItem="lCM-rZ-Tha" firstAttribute="top" secondItem="ysS-P0-5m2" secondAttribute="top" id="RVx-63-Kab"/>
-                                        <constraint firstItem="eat-yp-8XI" firstAttribute="trailing" secondItem="gwG-wo-cVY" secondAttribute="trailing" id="WvX-ej-X31"/>
-                                        <constraint firstItem="eat-yp-8XI" firstAttribute="top" secondItem="Sas-17-aOE" secondAttribute="bottom" constant="3" id="XHg-5b-Hob"/>
-                                        <constraint firstItem="Sas-17-aOE" firstAttribute="top" secondItem="lCM-rZ-Tha" secondAttribute="bottom" constant="8" id="Z0p-Uo-qUx"/>
-                                        <constraint firstItem="ysS-P0-5m2" firstAttribute="leading" secondItem="Pyx-if-lyu" secondAttribute="leadingMargin" id="aEl-V6-cKf"/>
-                                        <constraint firstItem="Sas-17-aOE" firstAttribute="bottom" secondItem="s2q-X0-iBg" secondAttribute="bottom" id="dKO-aT-lYj"/>
-                                        <constraint firstItem="eat-yp-8XI" firstAttribute="leading" secondItem="gwG-wo-cVY" secondAttribute="leading" id="f1u-mA-X6w"/>
-                                        <constraint firstItem="s2q-X0-iBg" firstAttribute="top" secondItem="Sas-17-aOE" secondAttribute="top" id="hOW-e1-hsc"/>
-                                        <constraint firstItem="s2q-X0-iBg" firstAttribute="leading" secondItem="Sas-17-aOE" secondAttribute="trailing" constant="8" id="nWM-L0-XhU"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="gwG-wo-cVY" secondAttribute="bottom" constant="24.5" id="uqn-hp-6dc"/>
-                                        <constraint firstItem="eat-yp-8XI" firstAttribute="top" secondItem="s2q-X0-iBg" secondAttribute="bottom" constant="5" id="xBV-Jj-BfU"/>
-                                        <constraint firstItem="s2q-X0-iBg" firstAttribute="centerY" secondItem="Sas-17-aOE" secondAttribute="centerY" id="xIa-Nh-xgS"/>
-                                    </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="QQ0-yd-wJf"/>
-                                            <exclude reference="DwV-aW-Bcv"/>
-                                            <exclude reference="XHg-5b-Hob"/>
-                                            <exclude reference="xIa-Nh-xgS"/>
-                                        </mask>
-                                    </variation>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <outlet property="addressLabel" destination="eat-yp-8XI" id="R0a-g3-HZy"/>
-                                    <outlet property="categoriesLabel" destination="gwG-wo-cVY" id="26Q-X8-gtT"/>
-                                    <outlet property="nameLabel" destination="lCM-rZ-Tha" id="fx0-v6-lIm"/>
-                                    <outlet property="previewImage" destination="ysS-P0-5m2" id="mEu-Uj-oxg"/>
-                                    <outlet property="ratingImage" destination="Sas-17-aOE" id="Sfj-Xf-UvM"/>
-                                    <outlet property="reviewLabel" destination="s2q-X0-iBg" id="iRp-u2-eBC"/>
-                                    <segue destination="qyZ-04-pN6" kind="showDetail" identifier="showDetail" id="ebc-5W-Vz5">
-                                        <nil key="action"/>
-                                    </segue>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="e5w-IB-eKO" id="eY6-1b-6QD"/>
-                            <outlet property="delegate" destination="e5w-IB-eKO" id="3pk-CE-Flw"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="Vgu-FN-WPz"/>
-                    <navigationItem key="navigationItem" title="Favorites" id="YnG-Jv-TaG"/>
-                    <connections>
-                        <outlet property="resultsTableView" destination="IkF-nb-NtH" id="9iO-sV-zTq"/>
-                    </connections>
-                </tableViewController>
-            </objects>
-            <point key="canvasLocation" x="4686" y="-2383"/>
-        </scene>
         <!--Item-->
         <scene sceneID="pES-Ix-Ehf">
             <objects>
@@ -686,12 +606,56 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="e5w-IB-eKO" kind="relationship" relationship="rootViewController" id="CN6-Fs-EFu"/>
+                        <segue destination="Lnm-b2-epM" kind="relationship" relationship="rootViewController" id="Q83-hz-ne6"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FVo-ov-hyd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3870" y="-2355"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="yAq-8R-dDP">
+            <objects>
+                <viewController id="Lnm-b2-epM" customClass="FavouriteViewController" customModule="RestaurantFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="118" sectionHeaderHeight="28" sectionFooterHeight="28" id="mgJ-Xh-jKS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavouriteTableViewCell" rowHeight="118" id="jYh-hV-T0P" customClass="FavouriteTableViewCell" customModule="RestaurantFinder" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="118"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jYh-hV-T0P" id="RkB-wr-hTQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="117.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1HK-Ma-R4z">
+                                            <rect key="frame" x="8" y="0.0" width="238" height="109.5"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nC-NX-UAu">
+                                            <rect key="frame" x="298" y="44" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imgvw" destination="1HK-Ma-R4z" id="RAr-ze-dTn"/>
+                                    <outlet property="review" destination="6nC-NX-UAu" id="OAo-OJ-suI"/>
+                                    <segue destination="qyZ-04-pN6" kind="showDetail" identifier="showDetail" id="dEG-cJ-O7e"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Favorites" id="Gaj-Xr-l4A"/>
+                    <connections>
+                        <outlet property="tableView" destination="mgJ-Xh-jKS" id="ydA-LM-l2Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="My6-88-CWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4647" y="-2359"/>
         </scene>
         <!--Item-->
         <scene sceneID="G8G-l5-1Sf">
@@ -713,7 +677,7 @@
         <image name="empty_heart" width="90" height="85"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="dEG-cJ-O7e"/>
         <segue reference="MDy-X2-IVC"/>
-        <segue reference="ebc-5W-Vz5"/>
     </inferredMetricsTieBreakers>
 </document>

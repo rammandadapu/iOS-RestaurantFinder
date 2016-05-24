@@ -10,9 +10,9 @@ import MapKit
 import CoreData
 
 
-class RestaurantViewController: UIViewController, MKMapViewDelegate {
+class FavouriteDetailViewController: UIViewController {
     
-    var business: Business!
+    var business: List!
     let managedContext = DataController().managedObjectContext
     
     
@@ -29,35 +29,33 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         
         if(business != nil) {
-        self.navigationItem.title = business.name
-        
-        self.ratingImage.setImageWithURL(self.business.ratingImageURL)
-        
-        var staticMapURL: String = "https://maps.googleapis.com/maps/api/staticmap?center="
-        
-        staticMapURL += String(format:"%f", self.business.latitude!)+","+String(format:"%f", self.business.longitude!)
-        
-        staticMapURL += "&zoom=17&size=450x450&maptype=roadmap&markers=color:red%7Clabel:R%7C"
-        
-        staticMapURL += String(format:"%f", self.business.latitude!)+","+String(format:"%f", self.business.longitude!)
-        
-        self.staticMap.setImageWithURL(NSURL(string: staticMapURL)!)
-        
-        let reviewCount = self.business.reviewCount
-        if (reviewCount == 1) {
-            self.reviewCount.text = "\(reviewCount) review"
-        } else {
-            self.reviewCount.text = "\(reviewCount) reviews"
-        }
-        
-        self.addressLabel.text = self.business.displayAddress
-        self.descriptionLabel.text = self.business.description
-        self.phoneLabel.text = "Phone: "+self.business.phone!
-        
-        //self.mapView.delegate = self
-        let annotation = MKPointAnnotation()
-        let coordinate = CLLocationCoordinate2D(latitude: self.business.latitude!, longitude: self.business.longitude!)
-        annotation.coordinate = (coordinate)
+            self.navigationItem.title = business.title
+            
+            self.ratingImage.setImageWithURL(NSURL(string: self.business.rtgurrl!)!)
+            
+            print(self.business.latitude!)
+            print(self.business.longitude!)
+            
+            var staticMapURL: String = "https://maps.googleapis.com/maps/api/staticmap?center="
+            
+            staticMapURL += self.business.latitude!.stringValue+","+self.business.longitude!.stringValue
+            
+            staticMapURL += "&zoom=17&size=450x450&maptype=roadmap&markers=color:red%7Clabel:R%7C"
+            
+            staticMapURL += self.business.latitude!.stringValue+","+self.business.longitude!.stringValue
+            
+            self.staticMap.setImageWithURL(NSURL(string: staticMapURL)!)
+            
+            let reviewCount = self.business.reviewint
+            if (reviewCount == 1) {
+                self.reviewCount.text = "\(reviewCount) review"
+            } else {
+                self.reviewCount.text = "\(reviewCount) reviews"
+            }
+            
+            self.addressLabel.text = self.business.addressshort
+            self.descriptionLabel.text = self.business.description
+            self.phoneLabel.text = "Phone: "+self.business.phone!
         }
         
         //2
@@ -65,25 +63,22 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
         
         //3
         /*do {
-            let results =
-            try managedContext.executeFetchRequest(fetchRequest) as![RestaurantList]
-            print("-------------")
-            for var i = 0; i < results.count ; i++ {
-                print(results[i].name!)
-                print(results[i].reviewcount!)
-                print(results[i].disaddress!)
-            }
-            print("-------------")
+        let results =
+        try managedContext.executeFetchRequest(fetchRequest) as![RestaurantList]
+        print("-------------")
+        for var i = 0; i < results.count ; i++ {
+        print(results[i].name!)
+        print(results[i].reviewcount!)
+        print(results[i].disaddress!)
+        }
+        print("-------------")
         } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
+        print("Could not fetch \(error), \(error.userInfo)")
         }*/
     }
     
     @IBAction func favourites(sender: AnyObject) {
-        print("vijay testing");
-        print(self.business.name);
-        print(self.business.reviewCount);
-        print(self.business.ratingImageURL);
+        
         
         ///////////code for deletion
         
@@ -95,7 +90,7 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
             
             if !answers.isEmpty {
                 for x in answers{
-                    if x.title == self.business.name{
+                    if x.title == self.business.title{
                         print("already exist")
                         managedContext.deleteObject(x)
                         do {
@@ -127,26 +122,25 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
             insertIntoManagedObjectContext: managedContext)
         
         //3
-        person.setValue(self.business.name, forKey: "title")
+        person.setValue(self.business.title, forKey: "title")
         // person.setValue(self.business.ratingImageURL, forKey: "ratingimage")
-        person.setValue(self.business.reviewCount, forKey: "reviewint")
+        person.setValue(self.business.reviewint, forKey: "reviewint")
         // person.setValue(self.business.imageURL, forKey: "previewimage")
-        person.setValue(self.business.displayCategories, forKey: "categories")
-        person.setValue(self.business.displayAddress, forKey: "address")
-        person.setValue(self.business.shortAddress, forKey: "addressshort")
-        let imgurl = self.business.imageURL
-        let contents = imgurl?.absoluteString
+        person.setValue(self.business.categories, forKey: "categories")
+        person.setValue(self.business.address, forKey: "address")
+        person.setValue(self.business.addressshort, forKey: "addressshort")
+        let imgurl = self.business.imgurl
+        let contents = imgurl
         print(contents!)
         person.setValue(contents!, forKey: "imgurl")
         
         person.setValue(self.business.latitude!, forKey: "latitude")
         person.setValue(self.business.longitude!, forKey: "longitude")
         person.setValue(self.business.phone!, forKey: "phone")
+
         
-        print(self.business.latitude!)
-        
-        let rtgurl = self.business.ratingImageURL
-        let rtgstring = rtgurl.absoluteString
+        let rtgurl = self.business.rtgurrl
+        let rtgstring = rtgurl
         print(rtgstring)
         person.setValue(rtgstring, forKey: "rtgurrl")
         //4
@@ -164,19 +158,4 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
         
     }
     
-    override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
-        if (segue.identifier == "segueTest") {
-            let navVC = segue.destinationViewController as! UINavigationController
-            let tableVC = navVC.viewControllers.first as! StreetViewViewController
-            
-            tableVC.lat = self.business.latitude!
-            tableVC.lng = self.business.longitude!
-            
-            
-            
-            
-            
-        }
-    }
-
 }

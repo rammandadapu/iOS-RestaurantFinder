@@ -82,10 +82,15 @@ class FavouriteViewController: UIViewController , UITableViewDataSource, UITable
         cell.imgvw.layer.cornerRadius = 9.0
         cell.imgvw.layer.masksToBounds = true
         
-        cell.title.text = "\(indexPath.row + 1). \(business.title!)"
+        /*cell.title.text = "\(indexPath.row + 1). \(business.title!)"
         
         let rtgurl = NSURL(string: business.rtgurrl!)
         cell.ratingimage.setImageWithURL(rtgurl!)
+        
+        
+        
+        cell.address.text = business.address
+        cell.keywords.text = business.categories*/
         
         let reviewCount = business.reviewint!
         if (reviewCount == 1) {
@@ -93,9 +98,6 @@ class FavouriteViewController: UIViewController , UITableViewDataSource, UITable
         } else {
             cell.review.text = "\(reviewCount) reviews"
         }
-        
-        cell.address.text = business.address
-        cell.keywords.text = business.categories
         
         cell.layoutIfNeeded()
         
@@ -106,6 +108,18 @@ class FavouriteViewController: UIViewController , UITableViewDataSource, UITable
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let cnt = rslts();
         return cnt.count;
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let result = self.results[indexPath.row]
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! FavouriteDetailViewController
+                controller.business = result
+                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+                controller.navigationItem.leftItemsSupplementBackButton = true
+            }
+        }
     }
     
     /*
