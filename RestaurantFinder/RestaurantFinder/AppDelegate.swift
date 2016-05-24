@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         GMSServices.provideAPIKey("AIzaSyBS8BFnuV4RQzHqPJZveBRVbhoNCRJ8N9o")
-        let tabBarController = self.window!.rootViewController as! UITabBarController
+        /*let tabBarController = self.window!.rootViewController as! UITabBarController
         let splitViewController = tabBarController.viewControllers!.last as! UISplitViewController
         let searchNavController = splitViewController.viewControllers.first as! UINavigationController
         
@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         detailViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         
         let business = masterViewController.results.first
-        detailViewController.business = business
+        detailViewController.business = business*/
         // Override point for customization after application launch.
         return true
     }

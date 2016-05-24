@@ -13,10 +13,12 @@ import CoreData
 class RestaurantViewController: UIViewController, MKMapViewDelegate {
     
     var business: Business!
-    //let managedContext = DataController().managedObjectContext
+    let managedContext = DataController().managedObjectContext
     
     
     @IBOutlet weak var phoneLabel: UILabel!
+    
+    @IBOutlet weak var favImage: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var reviewCount: UILabel!
@@ -83,30 +85,76 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
         print(self.business.reviewCount);
         print(self.business.ratingImageURL);
         
+        ///////////code for deletion
+        
+        let fetchRequest = NSFetchRequest(entityName: "List")
+        
+        do {
+            let answers =
+            try managedContext.executeFetchRequest(fetchRequest) as![List]
+            
+            if !answers.isEmpty {
+                for x in answers{
+                    if x.title == self.business.name{
+                        print("already exist")
+                        managedContext.deleteObject(x)
+                        do {
+                            try managedContext.save()
+                            let alert = UIAlertView()
+                            alert.title = "Alert"
+                            alert.message = "Deleted from Favorites"
+                            alert.addButtonWithTitle("OK")
+                            alert.show()
+                            return
+                        } catch {
+                            let saveError = error as NSError
+                            print(saveError)
+                        }
+                        
+                    }
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        
         
         //2
-        /*let entity =  NSEntityDescription.entityForName("RestaurantList",
+        let entity =  NSEntityDescription.entityForName("List",
             inManagedObjectContext:managedContext)
         
         let person = NSManagedObject(entity: entity!,
             insertIntoManagedObjectContext: managedContext)
         
         //3
-        person.setValue(self.business.name, forKey: "name")
+        person.setValue(self.business.name, forKey: "title")
         // person.setValue(self.business.ratingImageURL, forKey: "ratingimage")
-        person.setValue(self.business.reviewCount, forKey: "reviewcount")
+        person.setValue(self.business.reviewCount, forKey: "reviewint")
         // person.setValue(self.business.imageURL, forKey: "previewimage")
         person.setValue(self.business.displayCategories, forKey: "categories")
-        person.setValue(self.business.displayAddress, forKey: "disaddress")
-        person.setValue(self.business.shortAddress, forKey: "shtaddress")
-        
+        person.setValue(self.business.displayAddress, forKey: "address")
+        person.setValue(self.business.shortAddress, forKey: "addressshort")
+        let imgurl = self.business.imageURL
+        let contents = imgurl?.absoluteString
+        print(contents!)
+        person.setValue(contents!, forKey: "imgurl")
+        let rtgurl = self.business.ratingImageURL
+        let rtgstring = rtgurl.absoluteString
+        print(rtgstring)
+        person.setValue(rtgstring, forKey: "rtgurrl")
         //4
         do {
             try managedContext.save()
+            let alert = UIAlertView()
+            alert.title = "Alert"
+            alert.message = "Saved TO Favorites"
+            alert.addButtonWithTitle("OK")
+            alert.show()
             //5
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
-        }*/
+        }
         
     }
+
 }
