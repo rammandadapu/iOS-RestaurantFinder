@@ -21,6 +21,7 @@ extension List {
     @NSManaged var reviewint: NSNumber?
     @NSManaged var rtgurrl: String?
     @NSManaged var title: String?
+    @NSManaged var desc: String?
     @NSManaged var latitude: NSNumber?
     @NSManaged var longitude: NSNumber?
     @NSManaged var phone: String?

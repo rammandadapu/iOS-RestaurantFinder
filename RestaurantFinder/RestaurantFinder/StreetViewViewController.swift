@@ -11,10 +11,11 @@ import GoogleMaps
 
 class StreetViewViewController: UIViewController , GMSMapViewDelegate{
     
-    @IBOutlet weak var testView: UIView!
-    
     var lat:Double!
     var lng:Double!
+    
+    @IBOutlet weak var testView: UIView!
+    
     
     var locationManager = CLLocationManager();
     
@@ -22,14 +23,12 @@ class StreetViewViewController: UIViewController , GMSMapViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        super.viewDidLoad()
         
         let panoView = GMSPanoramaView(frame: CGRectZero)
         panoView.delegate = self
         self.view = panoView
         
         panoView.moveNearCoordinate(CLLocationCoordinate2D(latitude: lat, longitude: lng))
-        
     }
 }
 

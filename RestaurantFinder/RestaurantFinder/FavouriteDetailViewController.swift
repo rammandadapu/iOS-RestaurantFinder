@@ -46,7 +46,7 @@ class FavouriteDetailViewController: UIViewController {
             
             self.staticMap.setImageWithURL(NSURL(string: staticMapURL)!)
             
-            let reviewCount = self.business.reviewint
+            let reviewCount = self.business.reviewint!
             if (reviewCount == 1) {
                 self.reviewCount.text = "\(reviewCount) review"
             } else {
@@ -54,7 +54,7 @@ class FavouriteDetailViewController: UIViewController {
             }
             
             self.addressLabel.text = self.business.addressshort
-            self.descriptionLabel.text = self.business.description
+            self.descriptionLabel.text = self.business.desc
             self.phoneLabel.text = "Phone: "+self.business.phone!
         }
         
@@ -75,6 +75,17 @@ class FavouriteDetailViewController: UIViewController {
         } catch let error as NSError {
         print("Could not fetch \(error), \(error.userInfo)")
         }*/
+    }
+    
+    override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
+        if (segue.identifier == "segueTest") {
+            let navVC = segue.destinationViewController as! UINavigationController
+            let tableVC = navVC.viewControllers.first as! FavoriteStreetViewController
+                tableVC.lat = self.business.latitude! as Double
+                tableVC.lng = self.business.longitude! as Double
+           
+        }
+        
     }
     
     @IBAction func favourites(sender: AnyObject) {
@@ -137,6 +148,7 @@ class FavouriteDetailViewController: UIViewController {
         person.setValue(self.business.latitude!, forKey: "latitude")
         person.setValue(self.business.longitude!, forKey: "longitude")
         person.setValue(self.business.phone!, forKey: "phone")
+        person.setValue(self.business.desc, forKey: "desc")
 
         
         let rtgurl = self.business.rtgurrl

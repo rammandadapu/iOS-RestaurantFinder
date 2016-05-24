@@ -141,6 +141,7 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
         
         person.setValue(self.business.latitude!, forKey: "latitude")
         person.setValue(self.business.longitude!, forKey: "longitude")
+        person.setValue(self.business.description, forKey: "desc")
         person.setValue(self.business.phone!, forKey: "phone")
         
         print(self.business.latitude!)

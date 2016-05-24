@@ -82,7 +82,7 @@ class FavouriteViewController: UIViewController , UITableViewDataSource, UITable
         cell.imgvw.layer.cornerRadius = 9.0
         cell.imgvw.layer.masksToBounds = true
         
-        /*cell.title.text = "\(indexPath.row + 1). \(business.title!)"
+        cell.title.text = "\(indexPath.row + 1). \(business.title!)"
         
         let rtgurl = NSURL(string: business.rtgurrl!)
         cell.ratingimage.setImageWithURL(rtgurl!)
@@ -90,7 +90,7 @@ class FavouriteViewController: UIViewController , UITableViewDataSource, UITable
         
         
         cell.address.text = business.address
-        cell.keywords.text = business.categories*/
+        cell.keywords.text = business.categories
         
         let reviewCount = business.reviewint!
         if (reviewCount == 1) {
