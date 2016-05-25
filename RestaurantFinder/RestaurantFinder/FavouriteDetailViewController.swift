@@ -82,13 +82,13 @@ class FavouriteDetailViewController: UIViewController {
     
     override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
         if (segue.identifier == "segueTest") {
+            if(business != nil) {
             let navVC = segue.destinationViewController as! UINavigationController
             let tableVC = navVC.viewControllers.first as! FavoriteStreetViewController
                 tableVC.lat = self.business.latitude! as Double
                 tableVC.lng = self.business.longitude! as Double
-           
+            }
         }
-        
     }
     
     @IBAction func favourites(sender: AnyObject) {

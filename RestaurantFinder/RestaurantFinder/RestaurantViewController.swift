@@ -180,17 +180,13 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
     
     override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
         if (segue.identifier == "segueTest") {
-            let navVC = segue.destinationViewController as! UINavigationController
-            let tableVC = navVC.viewControllers.first as! StreetViewViewController
+            if(business != nil) {
+                let navVC = segue.destinationViewController as! UINavigationController
+                let tableVC = navVC.viewControllers.first as! StreetViewViewController
             
-            tableVC.lat = self.business.latitude!
-            tableVC.lng = self.business.longitude!
-            
-            
-            
-            
-            
+                tableVC.lat = self.business.latitude!
+                tableVC.lng = self.business.longitude!
+            }
         }
     }
-
 }

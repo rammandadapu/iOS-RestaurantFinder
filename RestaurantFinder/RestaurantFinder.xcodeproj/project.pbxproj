@@ -24,6 +24,7 @@
 		A41DC2571CF42A030023A409 /* List+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41DC2551CF42A030023A409 /* List+CoreDataProperties.swift */; };
 		A41DC2581CF42A030023A409 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41DC2561CF42A030023A409 /* List.swift */; };
 		A41DC25A1CF430DC0023A409 /* StreetViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41DC2591CF430DC0023A409 /* StreetViewViewController.swift */; };
+		A4C440971CF52B53000C3CFC /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C440961CF52B53000C3CFC /* ViewControllerUtils.swift */; settings = {ASSET_TAGS = (); }; };
 		A4FFFF1D1CF411F5000B69D6 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FFFF1C1CF411F5000B69D6 /* FavouriteViewController.swift */; };
 		A4FFFF201CF4125E000B69D6 /* favstore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4FFFF1E1CF4125E000B69D6 /* favstore.xcdatamodeld */; };
 		A4FFFF261CF4159E000B69D6 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FFFF251CF4159E000B69D6 /* DataController.swift */; };
@@ -52,6 +53,7 @@
 		A41DC2551CF42A030023A409 /* List+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "List+CoreDataProperties.swift"; path = "RestaurantFinder/List+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A41DC2561CF42A030023A409 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = List.swift; path = RestaurantFinder/List.swift; sourceTree = "<group>"; };
 		A41DC2591CF430DC0023A409 /* StreetViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreetViewViewController.swift; sourceTree = "<group>"; };
+		A4C440961CF52B53000C3CFC /* ViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
 		A4FFFF1C1CF411F5000B69D6 /* FavouriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		A4FFFF1F1CF4125E000B69D6 /* favstore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = favstore.xcdatamodel; sourceTree = "<group>"; };
 		A4FFFF251CF4159E000B69D6 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				93F722AF1CF385BB000CB08B /* LaunchScreen.storyboard */,
 				93F722B21CF385BB000CB08B /* Info.plist */,
 				93F722AA1CF385BB000CB08B /* RestaurantFinder.xcdatamodeld */,
+				A4C440961CF52B53000C3CFC /* ViewControllerUtils.swift */,
 			);
 			path = RestaurantFinder;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				93F722AC1CF385BB000CB08B /* RestaurantFinder.xcdatamodeld in Sources */,
 				A41DC2571CF42A030023A409 /* List+CoreDataProperties.swift in Sources */,
 				A41DC2541CF426CD0023A409 /* FavouriteDetailViewController.swift in Sources */,
+				A4C440971CF52B53000C3CFC /* ViewControllerUtils.swift in Sources */,
 				A4FFFF1D1CF411F5000B69D6 /* FavouriteViewController.swift in Sources */,
 				A41DC2581CF42A030023A409 /* List.swift in Sources */,
 				93F722C81CF39441000CB08B /* BusinessTableCell.swift in Sources */,

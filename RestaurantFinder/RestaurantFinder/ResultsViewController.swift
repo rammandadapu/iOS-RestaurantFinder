@@ -26,6 +26,8 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var sortButton: UIButton!
     var results: Array<Business> = []
     
+    var viewControls : ViewControllerUtils = ViewControllerUtils()
+    
     var total: Int!
     
     var sortRelevance:Bool = true
@@ -160,11 +162,11 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
         self.resultsTableView.showsInfiniteScrolling = results.count < total
         self.resultsTableView.tableFooterView = UIView(frame: CGRectZero)
         self.resultsTableView.reloadData()
-        //viewControls.hideActivityIndicator(self.view)
+        viewControls.hideActivityIndicator(self.view)
     }
     
     func onResultsCleared() {
-        //viewControls.hideActivityIndicator(self.view)
+        viewControls.hideActivityIndicator(self.view)
         self.resultsTableView.showsInfiniteScrolling = false
         self.resultsTableView.reloadData()
     }
@@ -178,7 +180,9 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
         return parameters
     }
     
-    func onBeforeSearch() -> Void {}
+    func onBeforeSearch() {
+        viewControls.showActivityIndicator(self.view)
+    }
     
     final func clearResults() {
         self.results = []

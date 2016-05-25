@@ -88,9 +88,9 @@
                                                     <action selector="favourites:" destination="qUX-DV-BFR" eventType="touchUpInside" id="GjR-ds-YZC"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2l-mH-A0j">
-                                                <rect key="frame" x="311" y="51" width="42" height="30"/>
-                                                <state key="normal" title="Street"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2l-mH-A0j">
+                                                <rect key="frame" x="288" y="46" width="78" height="62"/>
+                                                <state key="normal" title="Street" image="street_view"/>
                                                 <connections>
                                                     <segue destination="8U5-mJ-uYC" kind="show" identifier="segueTest" id="p2i-Oz-Mks"/>
                                                 </connections>
@@ -546,10 +546,9 @@
                                                     <action selector="favourites:" destination="GQP-FB-9Bs" eventType="touchUpInside" id="PNO-lM-r3E"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gp2-0i-QaI">
-                                                <rect key="frame" x="320" y="32" width="37" height="23"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <state key="normal" title="Street"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gp2-0i-QaI">
+                                                <rect key="frame" x="293" y="38" width="80" height="63"/>
+                                                <state key="normal" image="street_view"/>
                                                 <connections>
                                                     <segue destination="Tax-hU-5Nd" kind="show" identifier="segueTest" id="ncE-yc-cKd"/>
                                                 </connections>
@@ -770,6 +769,7 @@
         <image name="Search" width="30" height="30"/>
         <image name="empty_heart" width="90" height="85"/>
         <image name="ic_favorite" width="24" height="24"/>
+        <image name="street_view" width="240" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dEG-cJ-O7e"/>
