@@ -35,7 +35,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jya-wv-ylG">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jya-wv-ylG">
                                 <rect key="frame" x="16" y="64" width="568" height="287"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hPH-Jp-T3x">
@@ -274,17 +274,6 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" Address" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvj-vk-VzF">
-                                            <rect key="frame" x="163" y="57" width="468" height="17"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="17" id="0r0-4x-s9c"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
-                                                <rect key="frame" x="163" y="57" width="67" height="17"/>
-                                            </variation>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Resturant Name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyk-ea-dqq">
                                             <rect key="frame" x="163" y="8" width="416" height="19"/>
                                             <constraints>
@@ -301,6 +290,17 @@
                                                 <constraint firstAttribute="width" constant="84" id="NFR-7D-zs8"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" Address" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvj-vk-VzF">
+                                            <rect key="frame" x="163" y="63" width="311" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="17" id="0r0-4x-s9c"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                                <rect key="frame" x="163" y="57" width="67" height="17"/>
+                                            </variation>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="kig-e5-PPE" firstAttribute="leading" secondItem="Tgi-ys-mP7" secondAttribute="leading" id="5It-S7-COo"/>
@@ -688,17 +688,17 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh5-CL-I6f">
                                             <rect key="frame" x="165" y="0.0" width="389" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4d-6p-8BX">
-                                            <rect key="frame" x="165" y="80" width="396" height="21"/>
+                                            <rect key="frame" x="165" y="80" width="396" height="29.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFk-dj-o41">
-                                            <rect key="frame" x="165" y="56" width="389" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="489" placeholderIntrinsicHeight="21" text="address" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFk-dj-o41">
+                                            <rect key="frame" x="165" y="51" width="204" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -710,6 +710,7 @@
                                         <constraint firstItem="1HK-Ma-R4z" firstAttribute="bottom" secondItem="RkB-wr-hTQ" secondAttribute="bottomMargin" constant="5" id="Khr-N3-1eP"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="address" destination="aFk-dj-o41" id="7BE-gF-uwb"/>
                                     <outlet property="imgvw" destination="1HK-Ma-R4z" id="RAr-ze-dTn"/>
@@ -772,6 +773,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dEG-cJ-O7e"/>
-        <segue reference="M6m-u1-SqI"/>
+        <segue reference="MDy-X2-IVC"/>
     </inferredMetricsTieBreakers>
 </document>
