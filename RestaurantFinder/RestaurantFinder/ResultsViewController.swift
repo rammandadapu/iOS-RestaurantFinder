@@ -200,7 +200,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
         cell?.previewImage.layer.cornerRadius = 9.0
         cell?.previewImage.layer.masksToBounds = true
         
-        cell?.nameLabel.text = "\(indexPath.row + 1). \(business.name)"
+        cell?.nameLabel.text = "\(business.name)"
         cell?.ratingImage.setImageWithURL(business.ratingImageURL)
         
         let reviewCount = business.reviewCount
