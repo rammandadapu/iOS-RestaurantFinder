@@ -131,7 +131,12 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
                 /*if(self.sortAZ){
                 self.results.sortInPlace { $0.name < $1.name }
                 }*/
-                
+                if(self.results.count<=0){
+                    let alertController = UIAlertController(title: "", message:
+                        "No Matching Results Found..!!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
                 self.total = response["total"] as! Int
                 self.onResults(self.results, total: self.total)
             }, failure: {
