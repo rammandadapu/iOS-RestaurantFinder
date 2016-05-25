@@ -15,6 +15,8 @@ class FavouriteDetailViewController: UIViewController {
     var business: List!
     let managedContext = DataController().managedObjectContext
     
+    @IBOutlet weak var streetViewButton: UIButton!
+    @IBOutlet weak var emptyMessage: UILabel!
     
     @IBOutlet weak var phoneLabel: UILabel!
     
@@ -29,6 +31,16 @@ class FavouriteDetailViewController: UIViewController {
         super.viewDidLoad()
         
         if(business != nil) {
+            self.emptyMessage.hidden = true
+            
+            self.ratingImage.hidden = false
+            self.favImage.hidden = false
+            self.addressLabel.hidden = false
+            self.descriptionLabel.hidden = false
+            self.phoneLabel.hidden = false
+            self.staticMap.hidden = false
+            self.reviewCount.hidden = false
+            self.streetViewButton.hidden = false
             self.navigationItem.title = business.title
             
             self.ratingImage.setImageWithURL(NSURL(string: self.business.rtgurrl!)!)
@@ -59,6 +71,18 @@ class FavouriteDetailViewController: UIViewController {
             if let image = UIImage(named: "full_heart.png") {
                 self.favImage.setImage(image, forState: .Normal)
             }
+        } else {
+            self.emptyMessage.hidden = false
+            
+            self.ratingImage.hidden = true
+            self.favImage.hidden = true
+            self.addressLabel.hidden = true
+            self.descriptionLabel.hidden = true
+            self.phoneLabel.hidden = true
+            self.staticMap.hidden = true
+            self.reviewCount.hidden = true
+            self.streetViewButton.hidden = true
+
         }
         
         //2

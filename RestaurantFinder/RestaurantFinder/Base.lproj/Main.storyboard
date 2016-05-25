@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kM2-kI-wdk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kM2-kI-wdk">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -147,6 +147,17 @@
                                             </mask>
                                         </variation>
                                     </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hNx-Zc-jH9">
+                                        <rect key="frame" x="46" y="145" width="288" height="75"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select a restaurant to see the details here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQ5-H4-EVs">
+                                                <rect key="frame" x="0.0" y="27" width="280" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -170,11 +181,13 @@
                     <connections>
                         <outlet property="addressLabel" destination="XuU-28-tMu" id="eja-GR-RrG"/>
                         <outlet property="descriptionLabel" destination="s2H-CT-bhB" id="vbE-Kf-hfY"/>
+                        <outlet property="emptyMessage" destination="QQ5-H4-EVs" id="9Ax-Qr-7k0"/>
                         <outlet property="favImage" destination="7xs-tH-IfV" id="Ofg-gW-MXK"/>
                         <outlet property="phoneLabel" destination="AA6-M0-tjC" id="pvx-NO-Tro"/>
                         <outlet property="ratingImage" destination="dWF-3j-W0E" id="xud-92-gWA"/>
                         <outlet property="reviewCount" destination="k3U-wc-PvU" id="QIk-Hd-z6v"/>
                         <outlet property="staticMap" destination="SZ8-Mh-aju" id="cgS-lQ-9fT"/>
+                        <outlet property="streetViewButton" destination="z2l-mH-A0j" id="cMr-qg-f6u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ynW-LH-qed" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -613,6 +626,17 @@
                                     <constraint firstAttribute="trailing" secondItem="BQA-XX-uZS" secondAttribute="trailing" constant="-2" id="jXX-vj-i5f"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aXe-AP-sZt">
+                                <rect key="frame" x="56" y="163" width="288" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select a restaurant to see the details here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nS-1D-Fet">
+                                        <rect key="frame" x="0.0" y="27" width="280" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -628,11 +652,13 @@
                     <connections>
                         <outlet property="addressLabel" destination="RfJ-gN-bAL" id="xh6-qx-pAc"/>
                         <outlet property="descriptionLabel" destination="kRg-8G-5jq" id="s5c-Gh-hOH"/>
+                        <outlet property="emptyMessage" destination="7nS-1D-Fet" id="mHu-RG-bKB"/>
                         <outlet property="favImage" destination="yPS-6H-EJQ" id="0Hd-GV-lVn"/>
                         <outlet property="phoneLabel" destination="Hdv-sJ-iZK" id="ug8-gk-QUW"/>
                         <outlet property="ratingImage" destination="3yS-T0-6JN" id="HWC-G3-gy5"/>
                         <outlet property="reviewCount" destination="vEs-qe-SGc" id="LGo-jl-4z5"/>
                         <outlet property="staticMap" destination="mUp-ua-rFE" id="63O-0A-Usb"/>
+                        <outlet property="streetViewButton" destination="Gp2-0i-QaI" id="pHL-5f-V83"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4yt-Of-lkM" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -16,6 +16,8 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
     let managedContext = DataController().managedObjectContext
     
     
+    @IBOutlet weak var streetViewButton: UIButton!
+    @IBOutlet weak var emptyMessage: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     
     @IBOutlet weak var favImage: UIButton!
@@ -29,8 +31,11 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         
         if(business != nil) {
+            self.emptyMessage.hidden = true
+        self.streetViewButton.hidden = false
         self.navigationItem.title = business.name
         
+        self.ratingImage.hidden = false
         self.ratingImage.setImageWithURL(self.business.ratingImageURL)
         
         var staticMapURL: String = "https://maps.googleapis.com/maps/api/staticmap?center="
@@ -41,8 +46,10 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
         
         staticMapURL += String(format:"%f", self.business.latitude!)+","+String(format:"%f", self.business.longitude!)
         
+        self.staticMap.hidden = false
         self.staticMap.setImageWithURL(NSURL(string: staticMapURL)!)
         
+            self.reviewCount.hidden = false
         let reviewCount = self.business.reviewCount
         if (reviewCount == 1) {
             self.reviewCount.text = "\(reviewCount) review"
@@ -50,6 +57,9 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
             self.reviewCount.text = "\(reviewCount) reviews"
         }
         
+            self.addressLabel.hidden = false
+            self.descriptionLabel.hidden = false
+            self.phoneLabel.hidden = false
         self.addressLabel.text = self.business.displayAddress
         self.descriptionLabel.text = self.business.description
         self.phoneLabel.text = "Phone: "+self.business.phone!
@@ -78,11 +88,24 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
                 print("Could not fetch \(error), \(error.userInfo)")
             }
             
+            self.favImage.hidden = false
             if isFavorite == true {
                 if let image = UIImage(named: "full_heart.png") {
                     self.favImage.setImage(image, forState: .Normal)
                 }
             }
+        }
+        else {
+            self.emptyMessage.hidden = false
+            
+            self.ratingImage.hidden = true
+            self.favImage.hidden = true
+            self.addressLabel.hidden = true
+            self.descriptionLabel.hidden = true
+            self.phoneLabel.hidden = true
+            self.staticMap.hidden = true
+            self.reviewCount.hidden = true
+            self.streetViewButton.hidden = true
         }
     }
     
