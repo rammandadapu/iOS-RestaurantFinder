@@ -198,7 +198,7 @@
             </objects>
             <point key="canvasLocation" x="5392" y="1066"/>
         </scene>
-        <!--Street View View Controller-->
+        <!--Street view-->
         <scene sceneID="Fex-9a-qNr">
             <objects>
                 <viewController id="Via-m5-94f" customClass="StreetViewViewController" customModule="RestaurantFinder" customModuleProvider="target" sceneMemberID="viewController">
@@ -217,7 +217,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="HnA-Wo-XGb"/>
+                    <navigationItem key="navigationItem" title="Street view" id="HnA-Wo-XGb"/>
                     <connections>
                         <outlet property="testView" destination="I7Y-M0-GHQ" id="CvX-bI-x1b"/>
                     </connections>

@@ -56,6 +56,9 @@ class FavouriteDetailViewController: UIViewController {
             self.addressLabel.text = self.business.addressshort
             self.descriptionLabel.text = self.business.desc
             self.phoneLabel.text = "Phone: "+self.business.phone!
+            if let image = UIImage(named: "full_heart.png") {
+                self.favImage.setImage(image, forState: .Normal)
+            }
         }
         
         //2
@@ -111,6 +114,9 @@ class FavouriteDetailViewController: UIViewController {
                             alert.message = "Deleted from Favorites"
                             alert.addButtonWithTitle("OK")
                             alert.show()
+                            if let image = UIImage(named: "empty_heart.png") {
+                                self.favImage.setImage(image, forState: .Normal)
+                            }
                             return
                         } catch {
                             let saveError = error as NSError
@@ -163,6 +169,9 @@ class FavouriteDetailViewController: UIViewController {
             alert.message = "Saved TO Favorites"
             alert.addButtonWithTitle("OK")
             alert.show()
+            if let image = UIImage(named: "full_heart.png") {
+                self.favImage.setImage(image, forState: .Normal)
+            }
             //5
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")

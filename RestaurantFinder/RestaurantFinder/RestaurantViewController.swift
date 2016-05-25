@@ -58,25 +58,32 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
         let annotation = MKPointAnnotation()
         let coordinate = CLLocationCoordinate2D(latitude: self.business.latitude!, longitude: self.business.longitude!)
         annotation.coordinate = (coordinate)
-        }
-        
-        //2
-        //let fetchRequest = NSFetchRequest(entityName: "RestaurantList")
-        
-        //3
-        /*do {
-            let results =
-            try managedContext.executeFetchRequest(fetchRequest) as![RestaurantList]
-            print("-------------")
-            for var i = 0; i < results.count ; i++ {
-                print(results[i].name!)
-                print(results[i].reviewcount!)
-                print(results[i].disaddress!)
+            
+            var isFavorite:Bool = false
+            let fetchRequest = NSFetchRequest(entityName: "List")
+            
+            do {
+                let answers =
+                try managedContext.executeFetchRequest(fetchRequest) as![List]
+                
+                if !answers.isEmpty {
+                    for x in answers{
+                        if x.title == self.business.name{
+                            print("already exist")
+                            isFavorite = true
+                        }
+                    }
+                }
+            } catch let error as NSError {
+                print("Could not fetch \(error), \(error.userInfo)")
             }
-            print("-------------")
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }*/
+            
+            if isFavorite == true {
+                if let image = UIImage(named: "full_heart.png") {
+                    self.favImage.setImage(image, forState: .Normal)
+                }
+            }
+        }
     }
     
     @IBAction func favourites(sender: AnyObject) {
@@ -105,6 +112,9 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
                             alert.message = "Deleted from Favorites"
                             alert.addButtonWithTitle("OK")
                             alert.show()
+                            if let image = UIImage(named: "empty_heart.png") {
+                                self.favImage.setImage(image, forState: .Normal)
+                            }
                             return
                         } catch {
                             let saveError = error as NSError
@@ -158,6 +168,9 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
             alert.message = "Saved TO Favorites"
             alert.addButtonWithTitle("OK")
             alert.show()
+            if let image = UIImage(named: "full_heart.png") {
+                self.favImage.setImage(image, forState: .Normal)
+            }
             //5
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
