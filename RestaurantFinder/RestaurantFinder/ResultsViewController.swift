@@ -127,7 +127,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
                     (business: NSDictionary) -> Business in
                     return Business(dictionary: business)
                 })
-                self.results += results
+                self.results = results
                 /*if(self.sortAZ){
                 self.results.sortInPlace { $0.name < $1.name }
                 }*/
