@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        GMSServices.provideAPIKey("AIzaSyBS8BFnuV4RQzHqPJZveBRVbhoNCRJ8N9o")
+        GMSServices.provideAPIKey("")
         let tabBarController = self.window!.rootViewController as! UITabBarController
         let searchSplitViewController = tabBarController.viewControllers!.first as! UISplitViewController
         let favouritesSplitViewController = tabBarController.viewControllers!.last as! UISplitViewController
